@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animated Column Chart</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    canvas {
+      width: 600px;
+      height: 400px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <h2>Column Chart</h2>
+  <canvas id="barChart"></canvas>
+
+  <script>
+    const ctx = document.getElementById('barChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['A', 'B', 'C', 'D'],
+        datasets: [{
+          label: 'Value',
+          data: [10, 20, 30, 40],
+          backgroundColor: ['#4285F4', '#00C8F0', '#34A853', '#EA4335'],
+          borderRadius: 5
+        }]
+      },
+      options: {
+        animation: {
+          duration: 1500,
+          easing: 'easeOutBounce' // cảm giác "mọc lên" mềm mại
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
