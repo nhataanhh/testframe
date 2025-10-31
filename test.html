@@ -14,7 +14,7 @@
       --card: rgba(6, 12, 20, 0.4);
       --white: #ffffff;
       --muted: rgba(255, 255, 255, 0.6);
-      --radius-lg: 32px; /* lớn hơn */
+      --radius-lg: 32px;
       --shadow: 0 28px 60px rgba(0, 0, 0, 0.28);
     }
 
@@ -30,12 +30,11 @@
       min-height: 100vh;
       color: var(--white);
       line-height: 1.65;
-      padding: 56px 42px 92px; /* padding lớn hơn */
+      padding: 56px 42px 92px;
       display: flex;
       justify-content: center;
     }
 
-    /* tăng thêm 160px so với bản trước */
     .page {
       width: min(1540px, 100%);
     }
@@ -53,17 +52,12 @@
       gap: 16px;
       align-items: center;
     }
-    .badge {
+    .logo {
       width: 62px;
       height: 62px;
       border-radius: 20px;
-      background: linear-gradient(150deg, var(--barca-red), var(--barca-blue));
-      display: grid;
-      place-items: center;
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      font-size: 0.95rem;
-      box-shadow: 0 10px 32px rgba(0, 0, 0, .32);
+      object-fit: cover;
+      box-shadow: 0 10px 32px rgba(0,0,0,.32);
     }
     .brand-title {
       font-weight: 650;
@@ -91,7 +85,7 @@
       grid-template-columns: 1.08fr 0.92fr;
       gap: 32px;
       align-items: stretch;
-      min-height: 580px; /* cao hơn */
+      min-height: 580px;
     }
 
     .frame-card {
@@ -135,20 +129,21 @@
       margin-top: 12px;
     }
 
-    /* áo to hơn đáng kể */
+    /* KHUNG ÁO ĐẤU MỚI */
     .jersey {
       background: radial-gradient(circle at top, rgba(165,0,68,.95), rgba(0,77,152,.85));
-      width: 400px; /* từ 360 -> 400 */
-      aspect-ratio: 3/4;
+      width: 480px;
+      padding-top: 50px;
+      padding-bottom: 80px;
       border-radius: 30px;
       border: 1px solid rgba(255,255,255,.12);
       position: relative;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      box-shadow: 0 24px 50px rgba(0,0,0,.25);
     }
-
     .jersey::before {
       content: "";
       position: absolute;
@@ -157,81 +152,45 @@
       border-radius: 24px;
       pointer-events: none;
     }
-
+    .player-title-outside {
+      font-size: .78rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: #ffe29e;
+      font-weight: 600;
+      text-align: center;
+      z-index: 2;
+    }
     .jersey-body {
-      width: 82%; /* to hơn 78% */
-      aspect-ratio: 3/3.35;
+      width: 85%;
+      aspect-ratio: 3/3.4;
       background: linear-gradient(135deg, #a50044 0%, #004d98 58%, #a50044 100%);
-      clip-path: polygon(15% 0, 85% 0, 100% 15%, 100% 66%, 50% 100%, 0% 66%, 0% 15%);
+      border-radius: 24px;
       border: 3px solid rgba(255,255,255,.45);
       position: relative;
-      display: grid;
-      place-items: center;
-      box-shadow: 0 30px 40px rgba(0,0,0,.4);
-    }
-    .jersey-body::after {
-      content: "10";
-      font-weight: 800;
-      font-size: 5.1rem; /* to hơn */
-      color: rgba(255,255,255,.14);
-      position: absolute;
-      inset: auto;
-      bottom: -16px;
-    }
-    .jersey-name {
-      position: absolute;
-      top: 7%;
-      font-size: .8rem;
-      letter-spacing: .13em;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #ffe093;
-    }
-    .jersey-club {
-      font-size: 1.65rem;
-      font-weight: 700;
-      color: #ffe093;
-      letter-spacing: -.03em;
-      text-shadow: 0 3px 16px rgba(0,0,0,.3);
-    }
-
-    .nfc-badge {
-      position: absolute;
-      right: 18px;
-      bottom: 18px;
-      background: rgba(5,18,31,.8);
-      border: 1.2px solid rgba(255,255,255,.21);
-      border-radius: 16px;
-      padding: 10px 16px 9px;
+      overflow: hidden;
       display: flex;
-      gap: 12px;
       align-items: center;
-      backdrop-filter: blur(10px);
-      cursor: pointer;
-      transition: .2s ease;
+      justify-content: center;
     }
-    .nfc-badge:hover {
-      transform: translateY(-2px);
-      border-color: rgba(255,204,0,.9);
+    .jersey-img {
+      width: 95%;
+      height: auto;
+      object-fit: contain;
+      z-index: 1;
+      transform: translateY(-20px);
     }
-    .nfc-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 14px;
-      background: radial-gradient(circle, rgba(255,204,0,1), rgba(255,204,0,.08));
-      display: grid;
-      place-items: center;
-      color: #1b2230;
+    .club-name {
+      position: absolute;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
       font-weight: 700;
-      font-size: .78rem;
-    }
-    .nfc-text {
-      font-size: .68rem;
-      line-height: 1.15;
-    }
-    .nfc-text strong {
-      display: block;
-      font-size: .76rem;
+      font-size: 1.35rem;
+      color: #ffe29e;
+      text-align: center;
+      z-index: 2;
+      text-shadow: 0 3px 14px rgba(0,0,0,.3);
     }
 
     .info-card {
@@ -388,10 +347,10 @@
   <main class="page">
     <header>
       <div class="brand">
-        <div class="badge">FCB</div>
+        <img src="framigos.jpg" alt="Framigos logo" class="logo">
         <div>
-          <div class="brand-title">Memorabilia Frame Studio</div>
-          <div class="brand-sub">Trang xác thực áo đấu – dành cho người sở hữu</div>
+          <div class="brand-title">Framigos Studio</div>
+          <div class="brand-sub">Trang xác thực áo đấu – dành cho chủ sở hữu</div>
         </div>
       </div>
       <div class="chip">
@@ -405,20 +364,18 @@
         <div class="light"></div>
         <h1 class="title">Lionel Messi – Barça Home Jersey</h1>
         <p class="sub-title">Chiếc áo đấu được đóng khung, lấy cảm hứng từ mùa giải 2011–2012 – thời kỳ đỉnh cao của Messi tại Barcelona.</p>
+
+        <!-- KHUNG ÁO ĐẤU MỚI ĐÃ THAY VÀO -->
         <div class="jersey-wrap">
           <div class="jersey">
+            <div class="player-title-outside">FC BARCELONA</div>
             <div class="jersey-body">
-              <span class="jersey-name">Lionel Messi</span>
-              <span class="jersey-club">FC Barcelona</span>
-            </div>
-            <div class="nfc-badge" id="nfcBtn" title="Mô phỏng quét NFC">
-              <div class="nfc-icon">NFC</div>
-              <div class="nfc-text">
-                <strong>Tap để xem chứng thực</strong>
-                ID: FCB-M10-112012
-              </div>
+              <img src="messi.png" alt="Messi jersey" class="jersey-img">
+              <span class="club-name">Lionel Messi</span>
             </div>
           </div>
+
+          <!-- info-side giữ nguyên -->
           <div class="info-side" style="flex:1 1 auto; display:flex; flex-direction:column; gap:14px;">
             <div class="info-card">
               <div class="info-title">Trạng thái xác thực</div>
@@ -449,6 +406,7 @@
         </div>
       </div>
 
+      <!-- RIGHT PANE GIỮ NGUYÊN -->
       <div class="right-pane">
         <div class="data-card reveal">
           <div class="section-title">Thông tin chiếc áo</div>
@@ -463,15 +421,15 @@
             </tr>
             <tr>
               <td>Tình trạng</td>
-              <td>9/10 – preserved</td>
+              <td>8/10 – preserved</td>
             </tr>
             <tr>
               <td>Nguồn gốc</td>
-              <td>Private auction 2025</td>
+              <td>Private auction 2012</td>
             </tr>
             <tr>
               <td>Chủ sở hữu</td>
-              <td>Ẩn theo yêu cầu</td>
+              <td>Framigos</td>
             </tr>
             <tr>
               <td>Chứng thực hình ảnh</td>
@@ -484,10 +442,10 @@
           <div class="section-title">Ảnh match reference</div>
           <p class="story">Ảnh Messi mặc mẫu áo tương tự trong giai đoạn 2011–2012. Màu sắc có thể lệch nhẹ do ánh sáng & thiết bị chụp.</p>
           <div class="gallery">
-            <div class="gallery-item" style="background-image:url('https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg?auto=compress&cs=tinysrgb&w=800');" data-caption="vs Real Madrid – Camp Nou"></div>
-            <div class="gallery-item" style="background-image:url('https://images.pexels.com/photos/61143/pexels-photo-61143.jpeg?auto=compress&cs=tinysrgb&w=800');" data-caption="La Liga match"></div>
-            <div class="gallery-item" style="background-image:url('https://images.pexels.com/photos/610366/pexels-photo-610366.jpeg?auto=compress&cs=tinysrgb&w=800');" data-caption="Celebration pose"></div>
-          </div>
+  <div class="gallery-item" style="background-image:url('messi1.jpg');" data-caption="Celebrating moment"></div>
+  <div class="gallery-item" style="background-image:url('messi2.jpg');" data-caption="With legendary Xavi and Puyol"></div>
+  <div class="gallery-item" style="background-image:url('messi4.jpg');" data-caption="vs Real Madrid"></div>
+</div>
         </div>
 
         <div class="data-card reveal">
@@ -524,15 +482,6 @@
     };
     window.addEventListener('scroll', onScroll);
     onScroll();
-
-    const nfcBtn = document.getElementById('nfcBtn');
-    const verifyStatus = document.getElementById('verifyStatus');
-    nfcBtn.addEventListener('click', () => {
-      verifyStatus.textContent = "Đã đối chiếu – Trùng với dữ liệu gốc (tải từ repo)";
-      verifyStatus.style.color = "#ffcc00";
-      nfcBtn.style.borderColor = "rgba(255,204,0,.9)";
-      // window.location.href = "https://ten-repo-cua-ban.github.io/barca-messi-jersey/";
-    });
   </script>
 </body>
 </html>
